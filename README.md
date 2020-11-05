@@ -1,35 +1,23 @@
-# CSC131Lab
-CSC131 github lab for Team FUN
+# CSC131 Team FUN github repo
+Make sure you don't commit any documents here, use collaborative office 365 for that. 
+The reason being, if 2 people are working on the document at the same time, git will be unable to handle merges of the two peoples' changes because docx is not a plain text file like code is.
 
-Go to URL: https://github.com/, (Links to an external site.) register an account with your SacState email, and then login.
+### Setting up TeamProject eclipse project
+After you clone the repo, in eclipse File > Import Projects from File System
+You need to install the JavaFX SDK for your platform 
+https://gluonhq.com/products/javafx/
 
-Part 1)  Getting ready: Watch the following video tutorials if this is your first time to use Git with Eclipse.
+And then add the jars to the project's classpath
+https://openjfx.io/openjfx-docs/#IDE-eclipse
 
-A. How To Add Eclipse Project To GitHub | How to Commit, Push, Pull from Eclipse to GitHub
-https://www.youtube.com/watch?v=LPT7v69guVY
-Git Basics
+Then you need to add these VM arguments to the run configuration
+Right click the project in eclipse, Run > Run Configurations > Arguments and add to VM arguments if on Windows:
+--module-path "\path\to\javafx-sdk-15.0.1\lib" --add-modules javafx.controls,javafx.fxml
 
-B. Committing, pushing, pulling and resolving conflicts with git and Eclipse
+...replacing the path with wherever you put the JavaFX SDK
 
-https://www.youtube.com/watch?v=M88sKbRDR8Y
-How to solve conflicts
+If on Linux/Mac:
+--module-path /path/to/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml
 
- 
 
-Part 2)  Working as a team:
-
-1. Select one team member as the Git master of your group. The master needs to create a repository, and add your teammates and the instructor (jagannadha.chidella@csus.edu) as "Collaborators" in the "Settings" tab. (All members excluding the master will receive an email from Git, which informs you that you have been added to the master's repository.) 
-
-2. All members clone the repository created by the master in your Eclipse.
-
-3. All members create a java project named "Lab02" in your Eclipse, and link it to your local git repository. 
-
-4. The master downloads Hello.javaPreview the document, add it to your Lab02 project in Eclipse. Update line 8 with his/her information, then save, commit, push the change to Git.
-
-5. Everyone else (excluding the master) pull the latest change from Git, which is the java file just added by the master.
-
-6. Everyone else tries to update line 9 in Hello.java with their own information. Save and commit to their local repository.
-
-7. Everyone else try to push the index (your updates in your local repository) to Git, resolve conflicts if needed. To resolve a conflict, you will need to keep the information added by your teammates, by adding your line 9 as a new line underneath the latest line added by your teammates to Hello.java. (Do NOT erase other teammates' lines when resolving a conflict.)
-
-8. When everyone finish, the master checks Git repository, and see whether Hello.java include all team member's information in it. If not, ask your teammate(s) to push their changes.
+I added the .classpath to the .gitignore because the SDK each person uses will be different because we may be on different platforms, so we can't just distribute the JavaFX SDK with the repository.
