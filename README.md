@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CSC131 Team FUN github repo
 Make sure you don't commit any documents here, use collaborative office 365 for that. 
 The reason being, if 2 people are working on the document at the same time, git will be unable to handle merges of the two peoples' changes because docx is not a plain text file like code is.
@@ -21,3 +22,8 @@ If on Linux/Mac:
 
 
 I added the .classpath to the .gitignore because the SDK each person uses will be different because we may be on different platforms, so we can't just distribute the JavaFX SDK with the repository.
+=======
+#CSC131 TEAM FUN github repo
+Make sure you don't commit any documents here, use collaborative office 365 for that
+The reason being, if 2 people are working on the document at the same time, git will be unable to handle merges of the two peoples' changes because docx is not a plain text file like code
+>>>>>>> 0c7569e3bdba853aabb7a9145a542f519e532b0e
