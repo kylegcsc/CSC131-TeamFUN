@@ -10,7 +10,7 @@ public class Hello {
 		System.out.println("This line was added by Ignacio Marmolejo.");
 		System.out.println("This line was added by Maan Raoof.");
 		System.out.println("This line was added by Rojan Maharjan.");
-		System.out.println("This line was added by First name Last name.");
+		System.out.println("This line was added by Edgar Granados.");
 		System.out.println("This line was added by First name Last name.");
 		System.out.println("This line was added by First name Last name.");
 	}
