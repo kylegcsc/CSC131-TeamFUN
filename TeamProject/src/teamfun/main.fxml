@@ -27,11 +27,6 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefWidth="50.0" text="/">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
          </children>
       </HBox>
       
