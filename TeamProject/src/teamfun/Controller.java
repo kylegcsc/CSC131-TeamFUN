@@ -36,13 +36,10 @@ public class Controller {
 	    private Button btn1;
 
 	    @FXML
-	    private Button btnEqual;
+	    private Button btnMultiply;
 
 	    @FXML
-	    private Button btnMRemove;
-
-	    @FXML
-	    private Button btnMAdd;
+	    private Button btnDivide;
 	    @FXML
 	    private TextField screenPrmpt;
 
@@ -50,7 +47,9 @@ public class Controller {
     public void initialize() {
         String javaVersion = System.getProperty("java.version");
         String javafxVersion = System.getProperty("javafx.version");
-        screenPrmpt.setStyle("-fx-text-inner-color: green; -fx-font-size: 16px;");
-		screenPrmpt.setText("Hello, JavaFX " + javafxVersion + "\nRunning on Java " + javaVersion + ".");
+        screenPrmpt.setStyle("-fx-text-inner-color: black; -fx-font-size: 32px;");
+		//screenPrmpt.setText("Hello, JavaFX " + javafxVersion + "\nRunning on Java " + javaVersion + ".");
+		screenPrmpt.setText("0");
+
     }
 }
