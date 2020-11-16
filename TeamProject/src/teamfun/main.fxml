@@ -53,6 +53,9 @@
             <Button fx:id="btn1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="1" GridPane.columnIndex="4" GridPane.rowIndex="5" />
             <Button fx:id="btnMultiply" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="×" GridPane.columnIndex="7" GridPane.rowIndex="3" />
             <Button fx:id="btnDivide" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="÷" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Button fx:id="btn21" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Button fx:id="btn22" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="." GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <Button fx:id="btn23" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="=" GridPane.columnIndex="7" GridPane.rowIndex="6" />
             
          </children>
       </GridPane>
