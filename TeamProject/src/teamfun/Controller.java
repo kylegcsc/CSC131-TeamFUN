@@ -37,6 +37,15 @@ public class Controller {
 
 	    @FXML
 	    private Button btn1;
+	    
+	    @FXML
+	    private Button btn21;
+	    
+	    @FXML
+	    private Button btn22;
+	    
+	    @FXML
+	    private Button btn23;
 
 	    @FXML
 	    private Button btnMultiply;
@@ -49,6 +58,7 @@ public class Controller {
 
 	    @FXML
 	    private Button btnDivide;
+	   
 	    @FXML
 	    private TextField screenPrmpt;
 
