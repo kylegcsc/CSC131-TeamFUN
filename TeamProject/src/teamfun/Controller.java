@@ -25,6 +25,9 @@ public class Controller {
 
 	    @FXML
 	    private Button btn7;
+	    
+	    @FXML
+	    private Button btn6;
 
 	    @FXML
 	    private Button btn3;
@@ -37,6 +40,12 @@ public class Controller {
 
 	    @FXML
 	    private Button btnMultiply;
+	    
+	    @FXML
+	    private Button btnSubtract;
+	    
+	    @FXML
+	    private Button btnSum;
 
 	    @FXML
 	    private Button btnDivide;
