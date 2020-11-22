@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
     	try {
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/main.fxml"));
         	//loader.setRoot(this);
         	loader.setController(this);
         	loader.setClassLoader(getClass().getClassLoader());    	

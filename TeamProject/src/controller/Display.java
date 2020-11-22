@@ -1,4 +1,4 @@
-package application;
+package controller;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ public class Display extends VBox {
 	@FXML private TextField value;
 	
 	public Display() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("display.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/display.fxml"));
 		fxmlLoader.setRoot(this);		
 		fxmlLoader.setClassLoader(getClass().getClassLoader());
 		try {
@@ -21,6 +21,7 @@ public class Display extends VBox {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		//this.getStyleClass().add("display");
 	}
 	
 	@FXML
