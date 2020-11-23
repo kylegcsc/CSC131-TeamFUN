@@ -1,10 +1,10 @@
 package application;
 
-public class OperationStrategyAdd implements OperationStrategy {
+public class OperationStrategyMultiply implements OperationStrategy {
 
 	@Override
 	public double doOperation(double leftOperand, double rightOperand) {
-		return leftOperand + rightOperand;
+		return leftOperand * rightOperand;
 	}
 
 }

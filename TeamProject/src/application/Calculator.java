@@ -2,7 +2,7 @@ package application;
 
 public class Calculator {
 	
-	// Singleton pattern
+	// Singleton design pattern
 	private static Calculator instance;	
 	
 	public static Calculator get() {
@@ -12,28 +12,29 @@ public class Calculator {
 	}
 	
 	private Calculator() {
-		operation = new OperationStrategyAdd();
-		value = 0;
-		operand = 0;
+		operation = null;
+		value = 0.0;
 	}
 	
-	OperationStrategy operation;
-	private long value;
-	private long operand;	
+	// Strategy design pattern
+	private OperationStrategy operation;
+	private double value;
 	
-	public void evaluate() {
+	public Calculator setOperation(OperationStrategy operationStrategy) {
+		operation = operationStrategy;
+		return this;
+	}
+	
+	public Calculator evaluate(double operand) {
 		value = operation.doOperation(value, operand);
+		return this;
 	}
 	
-	public long getValue() {
+	public double getValue() {
 		return value;
 	}
 	
-	public long getOperand() {
-		return operand;
-	}
-	
-	public void setOperand(long operand) {
-		this.operand = operand;
+	public void reset() {
+		value = 0.0;
 	}
 }
