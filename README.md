@@ -2,6 +2,8 @@
 Make sure you don't commit any documents here, use collaborative office 365 for that. 
 The reason being, if 2 people are working on the document at the same time, git will be unable to handle merges of the two peoples' changes because docx is not a plain text file like code is.
 
+Also you need to add JUnit5 to the build path for the unit tests
+
 ### Setting up TeamProject eclipse project
 After you clone the repo, in eclipse File > Import Projects from File System
 You need to install the JavaFX SDK for your platform 
