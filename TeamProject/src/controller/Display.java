@@ -13,12 +13,11 @@ public class Display extends VBox {
 	@FXML private Label value;
 	
 	public Display() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/display.fxml"));
-		fxmlLoader.setRoot(this);		
-		fxmlLoader.setClassLoader(getClass().getClassLoader());
-		fxmlLoader.setController(this);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/display.fxml"));
+		loader.setRoot(this);		
+		loader.setController(this);
 		try {
-			fxmlLoader.load();
+			loader.load();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -26,7 +25,7 @@ public class Display extends VBox {
 	
 	public void addExpressionDigit(int digit) {
 		StringBuilder builder = new StringBuilder(expression.getText());
-		//todo check if last character is an operator so append a whitespace, else if number dont append whitespace		
+		//todo  append whitespace if last character is an operator
 		//builder.append(' ');
 		builder.append(digit);
 		expression.setText(builder.toString());
