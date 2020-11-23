@@ -16,7 +16,7 @@
    		<Display fx:id="display"/>
    		<!--<fx:include fx:id="display" source="display.fxml" />--> 
    </top>
-   <left>      
+   <left>
    </left>
    <center>
       <GridPane alignment="CENTER" hgap="4.0" vgap="4.0" BorderPane.alignment="CENTER">
@@ -34,16 +34,16 @@
           <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <DigitButton digit="7" fx:id="button_7" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <DigitButton digit="8" fx:id="button_8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <DigitButton digit="9" fx:id="button_9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <DigitButton digit="4" fx:id="button_4" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <DigitButton digit="5" fx:id="button_5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <DigitButton digit="6" fx:id="button_6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <DigitButton digit="1" fx:id="button_1" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <DigitButton digit="2" fx:id="button_2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DigitButton digit="3" fx:id="button_3" GridPane.columnIndex="2" GridPane.rowIndex="3" />            
-            <DigitButton digit="0" fx:id="button_0" GridPane.columnIndex="1" GridPane.rowIndex="4"  onAction="#pressDigit" />
+            <DigitButton digit="7" fx:id="button_7" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#pressDigit" />
+            <DigitButton digit="8" fx:id="button_8" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#pressDigit"/>
+            <DigitButton digit="9" fx:id="button_9" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#pressDigit"/>
+            <DigitButton digit="4" fx:id="button_4" GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#pressDigit"/>
+            <DigitButton digit="5" fx:id="button_5" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#pressDigit"/>
+            <DigitButton digit="6" fx:id="button_6" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#pressDigit"/>
+            <DigitButton digit="1" fx:id="button_1" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#pressDigit"/>
+            <DigitButton digit="2" fx:id="button_2" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#pressDigit"/>
+            <DigitButton digit="3" fx:id="button_3" GridPane.columnIndex="2" GridPane.rowIndex="3" onAction="#pressDigit"/>            
+            <DigitButton digit="0" fx:id="button_0" GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#pressDigit"/>
             <!-- placeholders these will not be DigitButtons -->
             <DigitButton text="." fx:id="button_decimal" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <DigitButton text="=" fx:id="button_evaluate" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.columnSpan="2"/>
@@ -52,8 +52,8 @@
             <DigitButton text="x" fx:id="button_multiply" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
             <DigitButton text="/" fx:id="button_divide" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
             <DigitButton text="Del" fx:id="button_delete" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-            <DigitButton text="CE" fx:id="button_clearentry" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <DigitButton text="C" fx:id="button_clear" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <DigitButton text="CE" fx:id="button_clearentry" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#clearEntry"/>
+            <DigitButton text="C" fx:id="button_clear" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#clear"/>
          </children>
          <BorderPane.margin>
             <Insets bottom="8.0" left="8.0" right="8.0" />

@@ -13,10 +13,13 @@ import javafx.scene.control.Button;
 public class DigitButton extends Button {
 	
 	//This is an FXML property
-	public IntegerProperty digit = new SimpleIntegerProperty();
+	//public IntegerProperty digit = new SimpleIntegerProperty();
 	
-	public DigitButton(@NamedArg("digit") int digit) {		
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/digitbutton.fxml"));
+	private final int digit;
+	
+	public DigitButton(@NamedArg("digit") int digit) {
+		this.digit = digit;
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/calcbutton.fxml"));
 		fxmlLoader.setRoot(this);	
 		fxmlLoader.setClassLoader(getClass().getClassLoader());
 		try {
@@ -27,22 +30,21 @@ public class DigitButton extends Button {
 		this.setText(Integer.toString(digit));
 	}
 	
-	public IntegerProperty digitProperty() {
+	public int getDigit() {
 		return digit;
 	}
 	
-	public int getDigit() {
-		return digitProperty().get();
-	}
-	
-	public void setDigit(int digit) {
-		digitProperty().set(digit);
-	}
-	
-	
-	@FXML
-	public void pressDigit(ActionEvent event) {
-		int digit = ((DigitButton) event.getSource()).getDigit();
-	}
-	
+//	public IntegerProperty digitProperty() {
+//		return digit;
+//	}
+//	
+//	public int getDigit() {
+//		return digitProperty().get();
+//	}
+//	
+//	public void setDigit(int digit) {
+//		digitProperty().set(digit);
+//	}
+//	
+
 }

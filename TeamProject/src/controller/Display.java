@@ -26,7 +26,8 @@ public class Display extends VBox {
 	
 	public void addExpressionDigit(int digit) {
 		StringBuilder builder = new StringBuilder(expression.getText());
-		builder.append(' ');
+		//todo check if last character is an operator so append a whitespace, else if number dont append whitespace		
+		//builder.append(' ');
 		builder.append(digit);
 		expression.setText(builder.toString());
 	}
@@ -44,6 +45,10 @@ public class Display extends VBox {
 	private void updateValue(long value) {
 		// format in scientific notation etc?
 		this.value.setText(Long.toString(value));
+	}
+
+	public void clearEntry() {
+		this.value.setText("0");		
 	}
 	
 }
