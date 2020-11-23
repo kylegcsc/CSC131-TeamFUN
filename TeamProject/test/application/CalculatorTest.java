@@ -8,7 +8,7 @@ class CalculatorTest {
 
 	@Test
 	void testAdd() {
-		Calculator calc = new Calculator();
+		Calculator calc = Calculator.get();
 		calc.setOperand(5);
 		calc.evaluate();
 		assertEquals(5, calc.getValue());

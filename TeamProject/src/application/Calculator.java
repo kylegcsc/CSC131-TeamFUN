@@ -1,14 +1,25 @@
 package application;
 
 public class Calculator {
-
-	OperationStrategy operation;
-	private long value = 0;
-	private long operand = 0;
 	
-	public Calculator() {		
-		operation = new OperationStrategyAdd();
+	// Singleton pattern
+	private static Calculator instance;	
+	
+	public static Calculator get() {
+		if(instance == null)
+			instance = new Calculator();
+		return instance;		
 	}
+	
+	private Calculator() {
+		operation = new OperationStrategyAdd();
+		value = 0;
+		operand = 0;
+	}
+	
+	OperationStrategy operation;
+	private long value;
+	private long operand;	
 	
 	public void evaluate() {
 		value = operation.doOperation(value, operand);
