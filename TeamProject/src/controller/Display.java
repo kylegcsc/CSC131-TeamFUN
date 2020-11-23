@@ -4,13 +4,13 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class Display extends VBox {
-
-	@FXML private TextField expression;
-	@FXML private TextField value;
+	
+	@FXML private Label expressionText;
+	@FXML private Label valueText;
 	
 	public Display() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/display.fxml"));
@@ -24,14 +24,21 @@ public class Display extends VBox {
 		//this.getStyleClass().add("display");
 	}
 	
-	@FXML
-	public void processNum() {
-		
+	public void addExpressionDigit(int digit) {		
+		StringBuilder builder = new StringBuilder(expressionText.getText());
+		builder.append(' ');
+		builder.append(digit);
+		expressionText.setText(builder.toString());
 	}
 	
-	@FXML
-	public void processOperators() {
-		
+	private void updateExpression(String expression) {
+		//display an error if expression is too big? or force evaluation? or wrap text?
+		expressionText.setText(expression);
+	}
+	
+	private void updateValue(long value) {
+		// format in scientific notation etc?
+		valueText.setText(Long.toString(value));
 	}
 	
 }
