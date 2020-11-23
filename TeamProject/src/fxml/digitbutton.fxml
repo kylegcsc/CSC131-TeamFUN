@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import controller.ButtonController?>
+<?import controller.Controller?>
 <?import javafx.scene.layout.GridPane?>
 <?import controller.DigitButton?>
 <?import javafx.scene.text.Font?>
 
 <fx:root type="javafx.scene.control.Button" mnemonicParsing="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
-	maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#pressDigit" fx:controller="controller.ButtonController" 
+	maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
 	GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 <font><Font size="20.0" /></font>
 </fx:root>

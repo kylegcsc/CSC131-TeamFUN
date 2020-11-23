@@ -7,7 +7,7 @@
 
 <fx:root stylesheets="@/css/display.css" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" text="80 + 90 x 45 =">
+      <Label fx:id="expression" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" text="80 + 90 x 45 =">
          <font>
             <Font size="18.0" />
          </font>
@@ -18,7 +18,7 @@
             <Insets left="8.0" right="8.0" top="8.0" />
          </padding>
       </Label>
-      <Label maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" text="7, 650" VBox.vgrow="ALWAYS">
+      <Label fx:id="value" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" text="7, 650" VBox.vgrow="ALWAYS">
          <font>
             <Font size="30.0" />
          </font>

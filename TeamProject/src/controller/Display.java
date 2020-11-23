@@ -9,36 +9,41 @@ import javafx.scene.layout.VBox;
 
 public class Display extends VBox {
 	
-	@FXML private Label expressionText;
-	@FXML private Label valueText;
+	@FXML private Label expression;
+	@FXML private Label value;
 	
 	public Display() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/display.fxml"));
 		fxmlLoader.setRoot(this);		
 		fxmlLoader.setClassLoader(getClass().getClassLoader());
+		fxmlLoader.setController(this);
 		try {
 			fxmlLoader.load();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		//this.getStyleClass().add("display");
 	}
 	
-	public void addExpressionDigit(int digit) {		
-		StringBuilder builder = new StringBuilder(expressionText.getText());
+	public void addExpressionDigit(int digit) {
+		StringBuilder builder = new StringBuilder(expression.getText());
 		builder.append(' ');
 		builder.append(digit);
-		expressionText.setText(builder.toString());
+		expression.setText(builder.toString());
+	}
+	
+	public void clear() {
+		this.expression.setText("");
+		this.value.setText("0");
 	}
 	
 	private void updateExpression(String expression) {
 		//display an error if expression is too big? or force evaluation? or wrap text?
-		expressionText.setText(expression);
+		this.expression.setText(expression);
 	}
 	
 	private void updateValue(long value) {
 		// format in scientific notation etc?
-		valueText.setText(Long.toString(value));
+		this.value.setText(Long.toString(value));
 	}
 	
 }

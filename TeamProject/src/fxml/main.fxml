@@ -11,7 +11,7 @@
 <?import controller.Display?>
 <?import controller.DigitButton?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <top>
    		<Display fx:id="display"/>
    		<!--<fx:include fx:id="display" source="display.fxml" />--> 
@@ -43,7 +43,7 @@
             <DigitButton digit="1" fx:id="button_1" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <DigitButton digit="2" fx:id="button_2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <DigitButton digit="3" fx:id="button_3" GridPane.columnIndex="2" GridPane.rowIndex="3" />            
-            <DigitButton digit="0" fx:id="button_0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <DigitButton digit="0" fx:id="button_0" GridPane.columnIndex="1" GridPane.rowIndex="4"  onAction="#pressDigit" />
             <!-- placeholders these will not be DigitButtons -->
             <DigitButton text="." fx:id="button_decimal" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <DigitButton text="=" fx:id="button_evaluate" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.columnSpan="2"/>

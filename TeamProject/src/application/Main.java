@@ -11,22 +11,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-    	try {
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/main.fxml"));
-        	//loader.setRoot(this);
-        	loader.setController(this);
-        	loader.setClassLoader(getClass().getClassLoader());    	
-        	
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/main.fxml"));
+    	try {        	
         	loader.load();
-            primaryStage.setTitle("Team FUN Group Project");
-            primaryStage.setScene(new Scene(loader.getRoot()));
-            primaryStage.show();
     	} catch (IOException e) {
     		throw new RuntimeException(e);
     	}
-
-    	
-
+        primaryStage.setTitle("Team FUN Group Project");
+        primaryStage.setScene(new Scene(loader.getRoot()));
+        primaryStage.show();
     }
 
 
