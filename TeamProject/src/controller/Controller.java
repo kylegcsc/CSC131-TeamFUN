@@ -10,7 +10,7 @@ public class Controller {
 	// Called by FXML button
 	public void pressDigit(ActionEvent event) {
 		int digit = ((DigitButton) event.getSource()).getDigit();
-		display.addExpressionDigit(digit);
+		display.putDigit(digit);
 	}
 	
 	// Called by FXML button

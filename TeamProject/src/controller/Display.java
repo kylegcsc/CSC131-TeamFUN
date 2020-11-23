@@ -23,12 +23,28 @@ public class Display extends VBox {
 		}
 	}
 	
-	public void addExpressionDigit(int digit) {
+	private void addExpressionDigit(int digit) {
 		StringBuilder builder = new StringBuilder(expression.getText());
 		//todo  append whitespace if last character is an operator
 		//builder.append(' ');
 		builder.append(digit);
 		expression.setText(builder.toString());
+	}
+	
+	private void addValueDigit(int digit) {
+		String valueText = value.getText();
+		if(valueText.equals("0")) {
+			valueText = "";
+		}
+		StringBuilder builder = new StringBuilder(valueText);
+		builder.append(digit);
+		value.setText(builder.toString());
+	}
+	
+	public void putDigit(int digit) {
+		// dont put value into expression text until an operation is pressed
+		//addExpressionDigit(digit);
+		addValueDigit(digit);
 	}
 	
 	public void clear() {
@@ -41,9 +57,9 @@ public class Display extends VBox {
 		this.expression.setText(expression);
 	}
 	
-	private void updateValue(long value) {
+	private void updateValue(double value) {
 		// format in scientific notation etc?
-		this.value.setText(Long.toString(value));
+		this.value.setText(Double.toString(value));
 	}
 
 	public void clearEntry() {
