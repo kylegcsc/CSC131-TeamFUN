@@ -52,7 +52,7 @@
             <OperationButton operation="/" fx:id="button_divide" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#pressOperator"/>
             <DigitButton text="." fx:id="button_decimal" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <DigitButton text="Del" fx:id="button_delete" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-            <DigitButton text="=" fx:id="button_evaluate" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.columnSpan="2"/>
+            <DigitButton text="=" fx:id="button_evaluate" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.columnSpan="2" onAction="#evaluate"/>
             <DigitButton text="CE" fx:id="button_clearentry" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#clearEntry"/>
             <DigitButton text="C" fx:id="button_clear" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#clear"/>
          </children>

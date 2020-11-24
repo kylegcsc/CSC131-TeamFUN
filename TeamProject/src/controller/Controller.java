@@ -8,6 +8,10 @@ import javafx.scene.control.Button;
 
 public class Controller {
 	
+	private boolean operatorMode = false;	
+	private boolean entryIsResult = false;
+	private boolean entryIsEvaluation = false;
+	
 	@FXML private DigitButton button_0;
 	@FXML private DigitButton button_1;
 	@FXML private DigitButton button_2;
@@ -29,29 +33,109 @@ public class Controller {
 	@FXML private Button button_evaluate;
 	
 	@FXML private Display display;
+	private Calculator calc = Calculator.get();
 	
 	// Called by FXML button
 	public void pressDigit(ActionEvent event) {
 		int digit = ((DigitButton) event.getSource()).getDigit();
-		display.putDigit(digit);
+		
+		if(entryIsEvaluation == true) {
+			display.clearExpression();
+			entryIsEvaluation = false;
+		}
+		
+		if(entryIsResult == true || operatorMode == true) {
+			display.clearEntry();				
+			
+			entryIsResult = false;
+			operatorMode = false;
+		}
+		
+		display.putEntryDigit(digit);
 	}
 	
+	public void pressOperator(ActionEvent event) {
+		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();			
+		
+		if(operatorMode == false) {
+			calc.setOperation(operation);
+			calc.setValue(display.getEntry());
+			operatorMode = true;
+			
+			if(entryIsEvaluation == true) {
+				display.clearExpression();	
+				entryIsEvaluation = false;
+			}			
+			
+			display.putEntryInExpression();
+			display.appendExpressionOperator(operation.getChar());
+		} else {
+			calc.evaluate(display.getEntry());
+		}
+		
+	}
+	
+	public void evaluate() {
+		display.putEntryInExpression();
+		display.appendExpressionOperator('=');
+		
+		calc.evaluate(display.getEntry());
+		display.putEvaluatedValueInEntry(calc.getValue());
+		
+		entryIsResult = true;
+		entryIsEvaluation = true;
+		operatorMode = false;
+	}
+	
+	/*
 	// Called by FXML button
 	public void pressOperator(ActionEvent event) {
+		double expressionValue = 0.0;
+		String operator = "";
+		
 		OperationButton source = (OperationButton) event.getSource();
 		OperationStrategy operation = source.getOperation();
-		Calculator.get().setOperation(operation).evaluate(5);
-		display.putOperator(source.getOperationString());
+		Calculator.get().setValue(display.getEntry());
+		Calculator.get().setOperation(operation);
+		expressionValue = Calculator.get().getValue();
+		operator = source.getOperationString();
+		
+		if(operatorMode) {
+			evaluate();
+		} else {
+			operatorMode = true;
+			//display.setEntry(Calculator.get().getValue());
+			display.clearEntry();
+		}
+		
+		// Update expression display
+		display.putExpressionValue(expressionValue);
+		display.putOperator(operator);
 	}
+	*/
+	
+	//public void evaluate() {
+//		double operand = display.getEntry();
+//		Calculator.get().evaluate(operand);				
+//		operatorMode = false;		
+//		display.setEntry(Calculator.get().getValue());
+	//}
 	
 	// Called by FXML button
 	public void clear() {
-		display.clear();
+		entryIsResult = false;
+		entryIsEvaluation = false;
+		operatorMode = false;
+		
+		display.clearEntry();
+		display.clearExpression();
+		
+		calc.reset();
 	}
 	
-	// Called by FXML button 
 	public void clearEntry() {
-		display.clearEntry();
+		
+		//display.clearEntry();
 	}
 	
 }

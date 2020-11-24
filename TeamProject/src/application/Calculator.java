@@ -34,6 +34,10 @@ public class Calculator {
 		return value;
 	}
 	
+	public void setValue(double value) {
+		this.value = value;
+	}
+	
 	public void reset() {
 		value = 0.0;
 	}

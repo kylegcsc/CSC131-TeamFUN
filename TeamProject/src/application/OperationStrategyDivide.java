@@ -7,4 +7,9 @@ public class OperationStrategyDivide implements OperationStrategy {
 		return leftOperand / rightOperand;
 	}
 
+	@Override
+	public char getChar() {
+		return '/';
+	}
+
 }

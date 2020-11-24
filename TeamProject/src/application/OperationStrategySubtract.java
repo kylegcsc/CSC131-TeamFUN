@@ -7,4 +7,9 @@ public class OperationStrategySubtract implements OperationStrategy {
 		return leftOperand - rightOperand;
 	}
 
+	@Override
+	public char getChar() {
+		return '-';
+	}
+
 }

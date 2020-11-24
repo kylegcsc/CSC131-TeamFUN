@@ -7,4 +7,9 @@ public class OperationStrategyMultiply implements OperationStrategy {
 		return leftOperand * rightOperand;
 	}
 
+	@Override
+	public char getChar() {
+		return 'x';
+	}
+
 }
