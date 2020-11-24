@@ -13,32 +13,38 @@ public class Calculator {
 	
 	private Calculator() {
 		operation = null;
-		value = 0.0;
+		leftOperand = 0.0;
 	}
 	
 	// Strategy design pattern
 	private OperationStrategy operation;
-	private double value;
+	
+	private double leftOperand;
 	
 	public Calculator setOperation(OperationStrategy operationStrategy) {
 		operation = operationStrategy;
 		return this;
 	}
 	
-	public Calculator evaluate(double operand) {
-		value = operation.doOperation(value, operand);
-		return this;
+	public double evaluate(double rightOperand) {
+		leftOperand = operation.doOperation(leftOperand, rightOperand);
+		return leftOperand;
+	}
+	
+	public double evaluate(double leftOperand, double rightOperand) {
+		this.leftOperand = operation.doOperation(leftOperand, rightOperand);
+		return leftOperand;
 	}
 	
 	public double getValue() {
-		return value;
+		return leftOperand;
 	}
 	
 	public void setValue(double value) {
-		this.value = value;
+		this.leftOperand = value;
 	}
 	
 	public void reset() {
-		value = 0.0;
+		leftOperand = 0.0;
 	}
 }

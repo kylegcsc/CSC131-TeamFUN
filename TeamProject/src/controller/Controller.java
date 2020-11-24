@@ -4,33 +4,12 @@ import application.Calculator;
 import application.OperationStrategy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 public class Controller {
 	
 	private boolean operatorMode = false;	
 	private boolean entryIsResult = false;
 	private boolean entryIsEvaluation = false;
-	
-	@FXML private DigitButton button_0;
-	@FXML private DigitButton button_1;
-	@FXML private DigitButton button_2;
-	@FXML private DigitButton button_3;
-	@FXML private DigitButton button_4;
-	@FXML private DigitButton button_5;
-	@FXML private DigitButton button_6;
-	@FXML private DigitButton button_7;
-	@FXML private DigitButton button_8;
-	@FXML private DigitButton button_9;
-	@FXML private OperationButton button_multiply;
-	@FXML private OperationButton button_divide;
-	@FXML private OperationButton button_add;
-	@FXML private OperationButton button_subtract;
-	@FXML private Button button_decimal;
-	@FXML private Button button_delete;
-	@FXML private Button button_clear;
-	@FXML private Button button_clearentry;
-	@FXML private Button button_evaluate;
 	
 	@FXML private Display display;
 	private Calculator calc = Calculator.get();
@@ -56,7 +35,12 @@ public class Controller {
 	
 	public void pressOperator(ActionEvent event) {
 		operatorMode = true;
-					
+		
+		if(entryIsEvaluation == true) {
+			display.clearExpression();
+			entryIsEvaluation = false;
+		}
+		
 		if(display.isExpressionEmpty()) {
 			calc.setValue(display.getEntry());
 		} else {
@@ -75,51 +59,30 @@ public class Controller {
 		display.appendExpressionOperator(operation.getChar());
 	}
 	
-	public void evaluate() {
-		display.putEntryInExpression();
-		display.appendExpressionOperator('=');
-		
-		calc.evaluate(display.getEntry());
-		display.putEvaluatedValueInEntry(calc.getValue());
+	public void evaluate() {				
+		if((calc.getValue() == display.getEntry() && display.isExpressionEmpty()) || entryIsEvaluation == true) {			
+			calc.setValue(display.getEntry());
+			
+			display.clearExpression();
+			display.putEntryInExpression();
+			
+			display.clearEntry();					
+			display.putEvaluatedValueInEntry(calc.getValue());
+			display.appendExpressionOperator('=');
+		} else {			
+			display.putEntryInExpression();
+			
+			calc.evaluate(display.getEntry());
+			
+			display.putEvaluatedValueInEntry(calc.getValue());
+			display.appendExpressionOperator('=');
+		}
 		
 		entryIsResult = true;
 		entryIsEvaluation = true;
 		operatorMode = false;
 	}
-	
-	/*
-	// Called by FXML button
-	public void pressOperator(ActionEvent event) {
-		double expressionValue = 0.0;
-		String operator = "";
-		
-		OperationButton source = (OperationButton) event.getSource();
-		OperationStrategy operation = source.getOperation();
-		Calculator.get().setValue(display.getEntry());
-		Calculator.get().setOperation(operation);
-		expressionValue = Calculator.get().getValue();
-		operator = source.getOperationString();
-		
-		if(operatorMode) {
-			evaluate();
-		} else {
-			operatorMode = true;
-			//display.setEntry(Calculator.get().getValue());
-			display.clearEntry();
-		}
-		
-		// Update expression display
-		display.putExpressionValue(expressionValue);
-		display.putOperator(operator);
-	}
-	*/
-	
-	//public void evaluate() {
-//		double operand = display.getEntry();
-//		Calculator.get().evaluate(operand);				
-//		operatorMode = false;		
-//		display.setEntry(Calculator.get().getValue());
-	//}
+
 	
 	// Called by FXML button
 	public void clear() {
@@ -133,9 +96,9 @@ public class Controller {
 		calc.reset();
 	}
 	
+	// Called by FXML button
 	public void clearEntry() {
-		
-		//display.clearEntry();
+	
 	}
 	
 }
