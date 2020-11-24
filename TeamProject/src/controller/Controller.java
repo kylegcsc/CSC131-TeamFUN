@@ -76,7 +76,14 @@ public class Controller {
 	public void pressDecimal(ActionEvent event) {
 		if(entryIsEvaluation == true) {
 			display.clearExpression();
-			display.clearEntry();			
+			display.clearEntry();
+		}
+		
+		if(operatorMode == true) {
+			display.clearEntry();
+			entryIsEvaluation = false;
+			entryIsResult = false;
+			operatorMode = false;			
 		}
 		
 		display.appendEntryDecimal();
