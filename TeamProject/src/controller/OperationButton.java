@@ -35,6 +35,10 @@ public class OperationButton extends Button {
 		return operationStrategy;
 	}
 	
+	public final String getOperationString() {
+		return operation;
+	}
+	
 	private static final OperationStrategy operationPropertyToStrategy(String operation) {
 		switch(operation) {
 		case "+":
@@ -43,7 +47,7 @@ public class OperationButton extends Button {
 			return new OperationStrategySubtract();
 		case "/":
 			return new OperationStrategyDivide();
-		case "*":
+		case "x":
 			return new OperationStrategyMultiply();			
 		}
 		// todo throw an exception if the property in the fxml is not set properly

@@ -41,6 +41,13 @@ public class Display extends VBox {
 		value.setText(builder.toString());
 	}
 	
+	public void putOperator(String operator) {
+		StringBuilder builder = new StringBuilder(expression.getText());
+		builder.append(operator);
+		builder.append(" ");
+		expression.setText(builder.toString());
+	}
+	
 	public void putDigit(int digit) {
 		// dont put value into expression text until an operation is pressed
 		//addExpressionDigit(digit);

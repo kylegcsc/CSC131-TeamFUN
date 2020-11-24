@@ -46,10 +46,10 @@
             <DigitButton digit="3" fx:id="button_3" GridPane.columnIndex="2" GridPane.rowIndex="3" onAction="#pressDigit"/>            
             <DigitButton digit="0" fx:id="button_0" GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#pressDigit"/>
             <!-- placeholders these will not be DigitButtons -->                        
-            <OperationButton operation="+" fx:id="button_add" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
-            <OperationButton operation="-" fx:id="button_subtract" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-            <OperationButton operation="x" fx:id="button_multiply" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-            <OperationButton operation="/" fx:id="button_divide" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <OperationButton operation="+" fx:id="button_add" GridPane.columnIndex="3" GridPane.rowIndex="3" onAction="#pressOperator"/>
+            <OperationButton operation="-" fx:id="button_subtract" GridPane.columnIndex="3" GridPane.rowIndex="2" onAction="#pressOperator"/>
+            <OperationButton operation="x" fx:id="button_multiply" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#pressOperator"/>
+            <OperationButton operation="/" fx:id="button_divide" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#pressOperator"/>
             <DigitButton text="." fx:id="button_decimal" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <DigitButton text="Del" fx:id="button_delete" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
             <DigitButton text="=" fx:id="button_evaluate" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.columnSpan="2"/>
