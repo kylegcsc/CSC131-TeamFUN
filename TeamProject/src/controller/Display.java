@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +56,15 @@ public class Display extends VBox {
 		expression.setText(builder.toString());
 	}
 	
+	public void appendEntryDecimal() {
+		// don't append a decimal if the entry already has a decimal
+		if(entry.getText().contains(".")) return;
+		
+		StringBuilder builder = new StringBuilder(entry.getText());
+		builder.append('.');	
+		entry.setText(builder.toString());
+	}
+	
 	public double getEntry() {
 		return Double.parseDouble(entry.getText());
 	}
@@ -84,6 +94,8 @@ public class Display extends VBox {
 		String formatted = Double.toString(value);
 		if(isWholeNumber(value)) {
 			formatted = formatted.substring(0, formatted.length()-2);
+		} else {
+			return new DecimalFormat("0.0#########").format(value);
 		}
 		return formatted;
 	}

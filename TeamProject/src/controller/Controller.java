@@ -72,6 +72,16 @@ public class Controller {
 		calc.setOperation(operation);
 	}
 	
+	// Called by FXML button
+	public void pressDecimal(ActionEvent event) {
+		if(entryIsEvaluation == true) {
+			display.clearExpression();
+			display.clearEntry();			
+		}
+		
+		display.appendEntryDecimal();
+	}
+	
 	public void evaluate() {
 		// Identity if there is no expression
 		if((calc.getValue() == display.getEntry() && display.isExpressionEmpty()) || entryIsEvaluation == true) {			
@@ -113,7 +123,7 @@ public class Controller {
 		if(entryIsEvaluation == true) {
 			clear();
 		} else {
-			display.clearEntry();	
+			display.clearEntry();
 		}		
 	}
 	

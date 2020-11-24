@@ -11,6 +11,7 @@
 <?import controller.Display?>
 <?import controller.DigitButton?>
 <?import controller.OperationButton?>
+<?import controller.CalculatorButton?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <top>
@@ -44,17 +45,16 @@
             <DigitButton digit="1" fx:id="button_1" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#pressDigit"/>
             <DigitButton digit="2" fx:id="button_2" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#pressDigit"/>
             <DigitButton digit="3" fx:id="button_3" GridPane.columnIndex="2" GridPane.rowIndex="3" onAction="#pressDigit"/>            
-            <DigitButton digit="0" fx:id="button_0" GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#pressDigit"/>
-            <!-- placeholders these will not be DigitButtons -->                        
+            <DigitButton digit="0" fx:id="button_0" GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#pressDigit"/>            
             <OperationButton operation="+" fx:id="button_add" GridPane.columnIndex="3" GridPane.rowIndex="3" onAction="#pressOperator"/>
             <OperationButton operation="-" fx:id="button_subtract" GridPane.columnIndex="3" GridPane.rowIndex="2" onAction="#pressOperator"/>
             <OperationButton operation="x" fx:id="button_multiply" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#pressOperator"/>
             <OperationButton operation="/" fx:id="button_divide" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#pressOperator"/>
-            <DigitButton text="." fx:id="button_decimal" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <DigitButton text="Del" fx:id="button_delete" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-            <DigitButton text="=" fx:id="button_evaluate" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.columnSpan="2" onAction="#evaluate"/>
-            <DigitButton text="CE" fx:id="button_clearentry" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#clearEntry"/>
-            <DigitButton text="C" fx:id="button_clear" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#clear"/>
+            <CalculatorButton text="." fx:id="button_decimal" GridPane.columnIndex="0" GridPane.rowIndex="4" onAction="#pressDecimal"/>
+            <CalculatorButton text="Del" fx:id="button_delete" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <CalculatorButton text="=" fx:id="button_evaluate" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.columnSpan="2" onAction="#evaluate"/>
+            <CalculatorButton text="CE" fx:id="button_clearentry" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#clearEntry"/>
+            <CalculatorButton text="C" fx:id="button_clear" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#clear"/>
          </children>
          <BorderPane.margin>
             <Insets bottom="8.0" left="8.0" right="8.0" />
