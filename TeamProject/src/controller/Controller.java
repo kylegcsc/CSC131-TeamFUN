@@ -7,11 +7,17 @@ import javafx.fxml.FXML;
 
 public class Controller {
 	
-	private boolean operatorMode = false;	
+	// flag for if an operator was pressed, used to determine if entry needs to be wiped when pressing next digit
+	private boolean operatorMode = false;
+	
+	// is the current entry the result of an operation? (as opposed to a user entered digit)
 	private boolean entryIsResult = false;
+	
+	// is the current entry the result of an evaluation? (= button)
 	private boolean entryIsEvaluation = false;
 	
 	@FXML private Display display;
+	
 	private Calculator calc = Calculator.get();
 	
 	// Called by FXML button
@@ -40,27 +46,34 @@ public class Controller {
 		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();	
 		operatorMode = true;
 		
+		// If the current entry result of an evaluation then start a new expression
 		if(entryIsEvaluation == true) {
 			display.clearExpression();
-			entryIsEvaluation = false;
 		}
 		display.putEntryInExpression();
 		display.appendExpressionOperator(operation.getChar());
 		
-		if(calc.getOperation() == null) {
+		// If the current entry was the result of an evaluation then it is the LHS for next calculator operation
+		if(calc.getOperation() == null || entryIsEvaluation == true) {
 			calc.setValue(display.getEntry());
 			calc.setOperation(operation);
-		} else {
+		} else { // otherwise this is the next operation in a series of operators, so evaluate the previous operation
 			calc.evaluate(display.getEntry());
 			display.putEvaluatedValueInEntry(calc.getValue());
 			entryIsResult = true;
+		}
+		
+		// the entry is no longer an evaluation, it is now an operation result
+		if(entryIsEvaluation == true) {
+			entryIsEvaluation = false;
 		}
 
 		// Change the current operation AFTER evaluating the previous operation
 		calc.setOperation(operation);
 	}
 	
-	public void evaluate() {			
+	public void evaluate() {
+		// Identity if there is no expression
 		if((calc.getValue() == display.getEntry() && display.isExpressionEmpty()) || entryIsEvaluation == true) {			
 			calc.setValue(display.getEntry());
 			
@@ -68,7 +81,7 @@ public class Controller {
 			display.putEntryInExpression();
 			
 			display.clearEntry();
-		} else {			
+		} else {
 			display.putEntryInExpression();
 			
 			calc.evaluate(display.getEntry());
@@ -77,7 +90,6 @@ public class Controller {
 		display.putEvaluatedValueInEntry(calc.getValue());
 		display.appendExpressionOperator('=');
 		
-		//entryIsResult = true;
 		entryIsEvaluation = true;
 		operatorMode = false;
 	}
@@ -97,6 +109,7 @@ public class Controller {
 	
 	// Called by FXML button
 	public void clearEntry() {
+		// If the current entry was the result of an evaluation, start a new expression
 		if(entryIsEvaluation == true) {
 			clear();
 		} else {
