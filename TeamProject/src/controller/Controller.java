@@ -45,7 +45,7 @@ public class Controller {
 		}
 		
 		if(entryIsResult == true || operatorMode == true) {
-			display.clearEntry();				
+			display.clearEntry();		
 			
 			entryIsResult = false;
 			operatorMode = false;
@@ -55,24 +55,24 @@ public class Controller {
 	}
 	
 	public void pressOperator(ActionEvent event) {
-		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();			
-		
-		if(operatorMode == false) {
-			calc.setOperation(operation);
+		operatorMode = true;
+					
+		if(display.isExpressionEmpty()) {
 			calc.setValue(display.getEntry());
-			operatorMode = true;
-			
-			if(entryIsEvaluation == true) {
-				display.clearExpression();	
-				entryIsEvaluation = false;
-			}			
-			
-			display.putEntryInExpression();
-			display.appendExpressionOperator(operation.getChar());
 		} else {
 			calc.evaluate(display.getEntry());
-		}
+		}		
 		
+		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();			
+		calc.setOperation(operation);
+		
+		if(entryIsEvaluation == true) {
+			display.clearExpression();	
+			entryIsEvaluation = false;
+		}			
+		
+		display.putEntryInExpression();
+		display.appendExpressionOperator(operation.getChar());
 	}
 	
 	public void evaluate() {

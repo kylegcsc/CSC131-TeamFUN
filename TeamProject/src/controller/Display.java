@@ -64,6 +64,10 @@ public class Display extends VBox {
 		return false;
 	}
 	
+	public boolean isExpressionEmpty() {
+		return (expression.getText() == "");
+	}
+	
 	public void clearEntry() {
 		this.entry.setText("");
 	}
