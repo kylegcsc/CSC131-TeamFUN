@@ -59,24 +59,22 @@ public class Controller {
 		display.appendExpressionOperator(operation.getChar());
 	}
 	
-	public void evaluate() {				
+	public void evaluate() {			
 		if((calc.getValue() == display.getEntry() && display.isExpressionEmpty()) || entryIsEvaluation == true) {			
 			calc.setValue(display.getEntry());
 			
 			display.clearExpression();
 			display.putEntryInExpression();
 			
-			display.clearEntry();					
-			display.putEvaluatedValueInEntry(calc.getValue());
-			display.appendExpressionOperator('=');
+			display.clearEntry();
 		} else {			
 			display.putEntryInExpression();
 			
 			calc.evaluate(display.getEntry());
-			
-			display.putEvaluatedValueInEntry(calc.getValue());
-			display.appendExpressionOperator('=');
 		}
+		
+		display.putEvaluatedValueInEntry(calc.getValue());
+		display.appendExpressionOperator('=');
 		
 		entryIsResult = true;
 		entryIsEvaluation = true;

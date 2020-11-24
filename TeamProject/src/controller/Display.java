@@ -24,7 +24,7 @@ public class Display extends VBox {
 	}
 	
 	public void putEvaluatedValueInEntry(double value) {
-		this.entry.setText(Double.toString(value));
+		this.entry.setText(formatValue(value));
 	}
 	
 	public double getEntry() {
@@ -55,7 +55,7 @@ public class Display extends VBox {
 	
 	public void putEntryInExpression() {
 		StringBuilder builder = new StringBuilder(expression.getText());
-		builder.append(entry.getText());
+		builder.append(formatValue(getEntry()));
 		expression.setText(builder.toString());
 	}
 	
@@ -69,11 +69,23 @@ public class Display extends VBox {
 	}
 	
 	public void clearEntry() {
-		this.entry.setText("");
+		this.entry.setText("0");
 	}
 	
 	public void clearExpression() {
 		this.expression.setText("");
+	}
+	
+	private boolean isWholeNumber(double value) {
+		return value % 1 == 0;
+	}
+	
+	private String formatValue(double value) {
+		String formatted = Double.toString(value);
+		if(isWholeNumber(value)) {
+			formatted = formatted.substring(0, formatted.length()-2);
+		}
+		return formatted;
 	}
 	
 //	
