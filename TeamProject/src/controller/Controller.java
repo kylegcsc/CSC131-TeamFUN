@@ -23,10 +23,13 @@ public class Controller {
 			entryIsEvaluation = false;
 		}
 		
-		if(entryIsResult == true || operatorMode == true) {
-			display.clearEntry();		
-			
+		if(entryIsResult == true) {
+			display.clearEntry();					
 			entryIsResult = false;
+		}
+		
+		if(operatorMode == true) {
+			display.clearEntry();					
 			operatorMode = false;
 		}
 		
@@ -34,35 +37,27 @@ public class Controller {
 	}
 	
 	public void pressOperator(ActionEvent event) {
-		if(operatorMode == true)
-			return;
-		
-		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();			
-		calc.setOperation(operation);
+		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();	
 		operatorMode = true;
 		
 		if(entryIsEvaluation == true) {
 			display.clearExpression();
 			entryIsEvaluation = false;
 		}
-		
 		display.putEntryInExpression();
 		display.appendExpressionOperator(operation.getChar());
 		
-		if(display.isExpressionEmpty()) {
+		if(calc.getOperation() == null) {
 			calc.setValue(display.getEntry());
+			calc.setOperation(operation);
 		} else {
-			if(entryIsEvaluation == false && entryIsResult == false) {
-				calc.evaluate(display.getEntry());				
-			}
+			calc.evaluate(display.getEntry());
 			display.putEvaluatedValueInEntry(calc.getValue());
-		}		
-		
-		if(entryIsEvaluation == true) {
-			display.clearExpression();	
-			entryIsEvaluation = false;
-		}			
-	
+			entryIsResult = true;
+		}
+
+		// Change the current operation AFTER evaluating the previous operation
+		calc.setOperation(operation);
 	}
 	
 	public void evaluate() {			
@@ -82,7 +77,7 @@ public class Controller {
 		display.putEvaluatedValueInEntry(calc.getValue());
 		display.appendExpressionOperator('=');
 		
-		entryIsResult = true;
+		//entryIsResult = true;
 		entryIsEvaluation = true;
 		operatorMode = false;
 	}

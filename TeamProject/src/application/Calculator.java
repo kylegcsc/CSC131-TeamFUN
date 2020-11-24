@@ -26,6 +26,10 @@ public class Calculator {
 		return this;
 	}
 	
+	public OperationStrategy getOperation() {
+		return operation;
+	}
+	
 	public double evaluate(double rightOperand) {
 		if(operation != null)
 			value = operation.doOperation(value, rightOperand);
@@ -42,5 +46,6 @@ public class Calculator {
 	
 	public void reset() {
 		value = 0.0;
+		operation = null;
 	}
 }

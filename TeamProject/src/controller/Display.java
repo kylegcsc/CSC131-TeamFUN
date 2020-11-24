@@ -77,7 +77,7 @@ public class Display extends VBox {
 	}
 	
 	private boolean isWholeNumber(double value) {
-		return value % 1 == 0;
+		return value % (double) 1.0 == (double) 0.0;
 	}
 	
 	private String formatValue(double value) {
