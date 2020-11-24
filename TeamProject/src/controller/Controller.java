@@ -34,6 +34,11 @@ public class Controller {
 	}
 	
 	public void pressOperator(ActionEvent event) {
+		if(operatorMode == true)
+			return;
+		
+		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();			
+		calc.setOperation(operation);
 		operatorMode = true;
 		
 		if(entryIsEvaluation == true) {
@@ -41,22 +46,23 @@ public class Controller {
 			entryIsEvaluation = false;
 		}
 		
+		display.putEntryInExpression();
+		display.appendExpressionOperator(operation.getChar());
+		
 		if(display.isExpressionEmpty()) {
 			calc.setValue(display.getEntry());
 		} else {
-			calc.evaluate(display.getEntry());
+			if(entryIsEvaluation == false && entryIsResult == false) {
+				calc.evaluate(display.getEntry());				
+			}
+			display.putEvaluatedValueInEntry(calc.getValue());
 		}		
-		
-		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();			
-		calc.setOperation(operation);
 		
 		if(entryIsEvaluation == true) {
 			display.clearExpression();	
 			entryIsEvaluation = false;
 		}			
-		
-		display.putEntryInExpression();
-		display.appendExpressionOperator(operation.getChar());
+	
 	}
 	
 	public void evaluate() {			
@@ -96,7 +102,11 @@ public class Controller {
 	
 	// Called by FXML button
 	public void clearEntry() {
-	
+		if(entryIsEvaluation == true) {
+			clear();
+		} else {
+			display.clearEntry();	
+		}		
 	}
 	
 }
