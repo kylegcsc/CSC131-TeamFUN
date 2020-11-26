@@ -47,7 +47,7 @@ public class Controller {
 		
 		// If we are still in operator mode, the user hasn't entered any digits into entry
 		// so this adds support for swapping the current operator if the user misclicks
-		if(operatorMode == true) {
+		if(operatorMode == true && ((OperationButton)event.getSource()).getOperation().getChar() != '±') {
 			calc.setOperation(operation);
 			display.swapOperator(operation.getChar());
 			return;

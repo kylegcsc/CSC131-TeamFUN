@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -107,15 +106,8 @@ public class Display extends VBox {
 		return formatted;
 	}
 
-	public void putEntryNegated()
-	{
+	public void putEntryNegated(){
 	   this.entry.setText(""+(-Double.parseDouble(this.entry.getText())));
-	   //expression.setText(this.entry.getText());
-	}
-
-	public String getExpression()
-	{
-		return expression.getText().toString();
 	}
 	
 }
