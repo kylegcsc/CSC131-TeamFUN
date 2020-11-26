@@ -61,7 +61,7 @@ public class Controller {
 		}
 		
 		//Used for the negation operation
-		if(((OperationButton)event.getSource()).getOperationString().equals("±")) {						
+		if(((OperationButton)event.getSource()).getOperation().getChar() == '±') {						
 			display.putEntryNegated();
 			if(entryIsEvaluation == true) {
 				evaluate();

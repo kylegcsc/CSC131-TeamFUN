@@ -1,9 +1,9 @@
 package application;
 
-public interface OperationStrategy {
+public abstract class OperationStrategy {
 	
-	public double doOperation(double leftOperand, double rightOperand);
+	public abstract double doOperation(double leftOperand, double rightOperand);
 	
-	public char getChar();
+	public abstract char getChar();
 	
 }

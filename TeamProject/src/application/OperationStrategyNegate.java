@@ -1,6 +1,6 @@
 package application;
 
-public class OperationStrategyNegate implements OperationStrategy
+public class OperationStrategyNegate extends OperationStrategy
 {
 
 	@Override

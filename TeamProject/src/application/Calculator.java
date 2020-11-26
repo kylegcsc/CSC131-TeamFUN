@@ -3,7 +3,7 @@ package application;
 public class Calculator {
 	
 	// Singleton design pattern
-	private static Calculator instance;	
+	private static Calculator instance;
 	
 	public static Calculator get() {
 		if(instance == null)

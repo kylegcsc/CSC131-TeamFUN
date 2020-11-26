@@ -1,6 +1,6 @@
 package application;
 
-public class OperationStrategySubtract implements OperationStrategy {
+public class OperationStrategySubtract extends OperationStrategy {
 
 	@Override
 	public double doOperation(double leftOperand, double rightOperand) {		
