@@ -45,8 +45,8 @@
             <DigitButton fx:id="button_0" digit="0" onAction="#pressDigit" GridPane.columnIndex="1" GridPane.rowIndex="4" />            
             <OperationButton fx:id="button_add" onAction="#pressOperator" operation="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <OperationButton fx:id="button_subtract" onAction="#pressOperator" operation="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <OperationButton fx:id="button_multiply" onAction="#pressOperator" operation="x" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <OperationButton fx:id="button_divide" onAction="#pressOperator" operation="/" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <OperationButton fx:id="button_multiply" onAction="#pressOperator" operation="×" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <OperationButton fx:id="button_divide" onAction="#pressOperator" operation="÷" GridPane.columnIndex="3" GridPane.rowIndex="0" />
             <CalculatorButton fx:id="button_decimal" onAction="#pressDecimal" text="." GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <CalculatorButton fx:id="button_delete" text="Del" GridPane.columnIndex="2" GridPane.rowIndex="0" />
             <CalculatorButton fx:id="button_clearentry" onAction="#clearEntry" text="CE" GridPane.columnIndex="1" GridPane.rowIndex="0" />

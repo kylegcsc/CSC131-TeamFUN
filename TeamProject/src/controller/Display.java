@@ -103,8 +103,8 @@ public class Display extends VBox {
 
 	public void putEntryNegated()
 	{
-	   this.entry.setText(""+(-Integer.parseInt(this.entry.getText())));
-	   expression.setText(this.entry.getText());
+	   this.entry.setText(""+(-Double.parseDouble(this.entry.getText())));
+	   //expression.setText(this.entry.getText());
 	}
 
 	public String getExpression()

@@ -50,24 +50,19 @@ public class Controller {
 		if(entryIsEvaluation == true) {
 			display.clearExpression();
 		}
+		
 		//Used for the negation operation
-		if(((OperationButton)event.getSource()).getOperationString().equals("Â±"))
-		{
-			display.clearExpression();
+		if(((OperationButton)event.getSource()).getOperationString().equals("±")) {						
 			display.putEntryNegated();
-			entryIsEvaluation = true;
-			evaluate();
-			calc.evaluate(display.getEntry());
-			calc.setValue(display.getEntry());
+			if(entryIsEvaluation == true) {
+				evaluate();
+			}
 			return;
 		}
-		else
-		{
-			if(display.getExpression().contains("="))
-				display.clearExpression();
-			display.putEntryInExpression();
-			display.appendExpressionOperator(operation.getChar());
-		}
+		
+		display.putEntryInExpression();
+		display.appendExpressionOperator(operation.getChar());
+		
 		// If the current entry was the result of an evaluation then it is the LHS for next calculator operation
 		if(calc.getOperation() == null || entryIsEvaluation == true) {
 			calc.setValue(display.getEntry());

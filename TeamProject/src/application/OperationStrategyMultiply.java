@@ -9,7 +9,7 @@ public class OperationStrategyMultiply implements OperationStrategy {
 
 	@Override
 	public char getChar() {
-		return 'Ã—';
+		return '×';
 	}
 
 }

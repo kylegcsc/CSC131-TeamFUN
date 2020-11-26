@@ -46,11 +46,11 @@ public class OperationButton extends Button {
 			return new OperationStrategyAdd();
 		case "-":
 			return new OperationStrategySubtract();
-		case "/":
+		case "÷":
 			return new OperationStrategyDivide();
-		case "x":
+		case "×":
 			return new OperationStrategyMultiply();	
-		case "Â±":
+		case "±":
 			return new OperationStrategyNegate();
 		}
 		// todo throw an exception if the property in the fxml is not set properly

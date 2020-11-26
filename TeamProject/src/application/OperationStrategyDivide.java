@@ -9,7 +9,7 @@ public class OperationStrategyDivide implements OperationStrategy {
 
 	@Override
 	public char getChar() {
-		return '/';
+		return '÷';
 	}
 
 }

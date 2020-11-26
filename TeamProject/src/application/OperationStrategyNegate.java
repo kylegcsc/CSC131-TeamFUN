@@ -14,7 +14,7 @@ public class OperationStrategyNegate implements OperationStrategy
 	public char getChar()
 	{
 		// TODO Auto-generated method stub
-		return '-';
+		return '±';
 	}
 
 }
