@@ -6,6 +6,7 @@ import application.OperationStrategy;
 import application.OperationStrategyAdd;
 import application.OperationStrategyDivide;
 import application.OperationStrategyMultiply;
+import application.OperationStrategyNegate;
 import application.OperationStrategySubtract;
 import javafx.beans.NamedArg;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,9 @@ public class OperationButton extends Button {
 		case "/":
 			return new OperationStrategyDivide();
 		case "x":
-			return new OperationStrategyMultiply();			
+			return new OperationStrategyMultiply();	
+		case "±":
+			return new OperationStrategyNegate();
 		}
 		// todo throw an exception if the property in the fxml is not set properly
 		return null;
