@@ -43,7 +43,16 @@ public class Controller {
 	}
 	
 	public void pressOperator(ActionEvent event) {
-		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();	
+		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();
+		
+		// If we are still in operator mode, the user hasn't entered any digits into entry
+		// so this adds support for swapping the current operator if the user misclicks
+		if(operatorMode == true) {
+			calc.setOperation(operation);
+			display.swapOperator(operation.getChar());
+			return;
+		}
+		
 		operatorMode = true;
 		
 		// If the current entry result of an evaluation then start a new expression
@@ -107,7 +116,7 @@ public class Controller {
 			display.clearExpression();
 			display.putEntryInExpression();
 			
-			display.clearEntry();
+			//display.clearEntry();
 		} else {
 			display.putEntryInExpression();
 			

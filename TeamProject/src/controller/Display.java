@@ -25,6 +25,12 @@ public class Display extends VBox {
 		}
 	}
 	
+	public void swapOperator(char operator) {
+		String finalText = this.expression.getText();
+		finalText = finalText.substring(0, finalText.length()-2).concat("" + operator + " ");
+		expression.setText(finalText);
+	}
+	
 	public void putEvaluatedValueInEntry(double value) {
 		this.entry.setText(formatValue(value));
 	}
