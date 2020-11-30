@@ -48,7 +48,7 @@
             <OperationButton fx:id="button_multiply" onAction="#pressOperator" operation="×" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <OperationButton fx:id="button_divide" onAction="#pressOperator" operation="÷" GridPane.columnIndex="3" GridPane.rowIndex="0" />
             <CalculatorButton fx:id="button_decimal" onAction="#pressDecimal" text="." GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <CalculatorButton fx:id="button_delete" text="Del" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <CalculatorButton fx:id="button_delete" text="Del" GridPane.columnIndex="2" GridPane.rowIndex="0" disable="true" />
             <CalculatorButton fx:id="button_clearentry" onAction="#clearEntry" text="CE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
             <CalculatorButton fx:id="button_clear" onAction="#clear" text="C" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <OperationButton fx:id="button_negate" onAction="#pressOperator" operation="±" GridPane.columnIndex="2" GridPane.rowIndex="4" />

@@ -43,11 +43,13 @@ public class Controller {
 	}
 	
 	public void pressOperator(ActionEvent event) {
-		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();
+		if(isDivideByZero()) return;
 		
+		OperationStrategy operation = ((OperationButton) event.getSource()).getOperation();
+			
 		// If we are still in operator mode, the user hasn't entered any digits into entry
 		// so this adds support for swapping the current operator if the user misclicks
-		if(operatorMode == true && ((OperationButton)event.getSource()).getOperation().getChar() != '±') {
+		if(operatorMode == true && (operation.getChar() != '±')) {
 			calc.setOperation(operation);
 			display.swapOperator(operation.getChar());
 			return;
@@ -61,7 +63,7 @@ public class Controller {
 		}
 		
 		//Used for the negation operation
-		if(((OperationButton)event.getSource()).getOperation().getChar() == '±') {						
+		if(operation.getChar() == '±') {						
 			display.putEntryNegated();
 			if(entryIsEvaluation == true) {
 				evaluate();
@@ -109,6 +111,8 @@ public class Controller {
 	}
 	
 	public void evaluate() {
+		if(isDivideByZero()) return;
+		
 		// Identity if there is no expression
 		if((calc.getValue() == display.getEntry() && display.isExpressionEmpty()) || entryIsEvaluation == true) {			
 			calc.setValue(display.getEntry());
@@ -151,6 +155,17 @@ public class Controller {
 		} else {
 			display.clearEntry();
 		}		
+	}
+	
+	private boolean isDivideByZero() {
+		if(Calculator.get().getOperation() != null && operatorMode != true) {
+			Double entry = display.getEntry();
+			boolean entryIsZero = Double.compare(entry, 0) == 0;
+			if(Calculator.get().getOperation().getChar() == '÷' && entryIsZero) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }
